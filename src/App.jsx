@@ -24,7 +24,7 @@ const HomePage = () => (
       </div>
       
       <h1 className="text-5xl font-bold font-mono mb-4 bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
-        {'<Builders Assets />'}
+        {'<Code Builders Assets />'}
       </h1>
       <p className="text-slate-400 mb-12 text-lg font-mono">Select a destination to continue</p>
 
@@ -48,9 +48,11 @@ const HomePage = () => (
 // --- COMPONENT: LINKS PAGE ---
 const LinksPage = () => {
   const links = [
-    { title: "GitHub Repository", url: "https://github.com", icon: <Code className="w-5 h-5" />, desc: "Source code for today's event" },
-    { title: "Slide Deck", url: "https://google.com", icon: <ExternalLink className="w-5 h-5" />, desc: "Presentation slides and notes" },
-    { title: "Live Demo", url: "https://vercel.com", icon: <Terminal className="w-5 h-5" />, desc: "The live application deployment" },
+    { title: "GitHub Repository", url: "https://github.com/Abdus-8747/Pixora-Image-Generator", icon: <Code className="w-5 h-5" />, desc: "Template repository for today's event" },
+    { title: "Slide Deck", url: "https://gamma.app/docs/Building-Pixora-A-Modern-Image-Explorer-8mj918pvsaxqq58", icon: <ExternalLink className="w-5 h-5" />, desc: "Presentation slides and notes" },
+    { title: "UnSplash Link", url: "https://unsplash.com/developers", icon: <Terminal className="w-5 h-5" />, desc: "Make Developer Account and Get API KEY" },
+    { title: "Pixora Live Demo", url: "https://pixora-img-gen.netlify.app", icon: <QrCode className="w-5 h-5" />, desc: "Explore the live version of Pixora" },
+    { title: "Code Builders Website", url: "https://www.codebuilders.co.in", icon: <LinkIcon className="w-5 h-5" />, desc: "Visit Code Builders for more events" },
   ];
 
   return (
@@ -138,7 +140,7 @@ const CertificateMaker = () => {
       canvas.height = height * scale;
       ctx.scale(scale, scale);
 
-      // --- DRAWING LOGIC RESTORED ---
+      // --- DRAWING LOGIC ---
       
       // 1. Background
       const bgGradient = ctx.createLinearGradient(0, 0, width, height);
@@ -206,11 +208,22 @@ const CertificateMaker = () => {
       ctx.lineTo(width / 2 + nameW / 2 + 20, 400);
       ctx.stroke();
 
-      // 9. Description
+      // 9. Description (UPDATED FOR MORE TEXT)
+      // Line 1: Standard text
       ctx.font = '20px "Courier New", monospace';
       ctx.fillStyle = '#cbd5e1';
-      ctx.fillText('has successfully compiled the requirements for the event', width / 2, 460);
+      ctx.fillText('Has successfully participated in the Code Builders event on', width / 2, 460);
       
+      // Line 2: Highlighted Event Topic
+      ctx.font = 'bold 32px "Courier New", monospace';
+      ctx.fillStyle = '#06b6d4'; // Cyan accent color
+      ctx.fillText('ADVANCED JAVASCRIPT', width / 2, 510);
+
+      // Line 3: Extra technical details
+      ctx.font = 'italic 18px "Courier New", monospace';
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('Focusing on ES6+ Features, Async Patterns, and Performance', width / 2, 550);
+
       // 10. Footer Box
       const today = new Date().toLocaleDateString('en-US', { 
         weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
@@ -304,11 +317,11 @@ const CertificateMaker = () => {
 
                 <div>
                    <label className="text-xs text-slate-400 block mb-2">FONT SIZE ADJUST</label>
-                   <input 
-                      type="range" 
-                      min="20" 
-                      max="60" 
-                      value={fontSize} 
+                   <input
+                      type="range"
+                      min="20"
+                      max="60"
+                      value={fontSize}
                       onChange={(e) => setFontSize(Number(e.target.value))}
                       className="w-full accent-cyan-500 h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer"
                    />
@@ -365,7 +378,7 @@ const CertificateMaker = () => {
                   </h1>
                   
                   <p className="text-cyan-500 tracking-widest text-[8px] sm:text-xs md:text-sm font-mono mb-4 md:mb-12">
-                    BUILDERS ASSETS PROOF OF WORK
+                    CODE BUILDERS ASSETS PROOF OF WORK
                   </p>
                   
                   <p className="text-slate-400 italic serif text-sm md:text-lg mb-4 md:mb-8">
